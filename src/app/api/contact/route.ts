@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
     const senderEmail = String(formData.get("email") || "").trim();
 
     if (!senderEmail) {
-      return NextResponse.redirect(new URL("/contact?sent=0", req.url));
+      return NextResponse.redirect(new URL("/contact?sent=0", req.url), 303);
     }
 
     let subject = "";
@@ -59,7 +59,7 @@ export async function POST(req: NextRequest) {
         <p><strong>Short message:</strong><br/>${message.replaceAll("\n", "<br/>")}</p>
       `;
     } else {
-      return NextResponse.redirect(new URL("/contact?sent=0", req.url));
+      return NextResponse.redirect(new URL("/contact?sent=0", req.url), 303);
     }
 
     await resend.emails.send({
@@ -75,8 +75,8 @@ export async function POST(req: NextRequest) {
         ? new URL("/contact?sent=1#request", req.url)
         : new URL("/contact?sent=1#apply", req.url);
 
-    return NextResponse.redirect(redirectUrl);
-  } catch (error) {
-    return NextResponse.redirect(new URL("/contact?sent=0", req.url));
+    return NextResponse.redirect(redirectUrl, 303);
+  } catch {
+    return NextResponse.redirect(new URL("/contact?sent=0", req.url), 303);
   }
 }
