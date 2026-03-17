@@ -63,8 +63,8 @@ export async function POST(req: NextRequest) {
     }
 
     await resend.emails.send({
-      from: "Genesis Staffing <onboarding@resend.dev>",
-      to: ["jacobprince302@gmail.com"],
+      from:"Genesis Staffing <hello@mail.genesisstaffingsolutions.co.uk>",
+      to: ["genesisstaffingltd@gmail.com"],
       replyTo: senderEmail,
       subject,
       html,
