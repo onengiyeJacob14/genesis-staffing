@@ -1,4 +1,10 @@
-export default function ContactPage() {
+export default function ContactPage({
+  searchParams,
+}: {
+  searchParams?: { sent?: string };
+}) {
+  const sent = searchParams?.sent;
+
   return (
     <div className="genesis-hero-bg">
       <section className="mx-auto max-w-6xl px-4 pt-10 pb-12">
@@ -15,6 +21,18 @@ export default function ContactPage() {
         <p className="mt-4 max-w-3xl text-genesis-slate">
           For urgent bookings, please call directly. For general enquiries, use the forms below.
         </p>
+
+        {sent === "1" && (
+          <div className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+            Your message has been sent successfully.
+          </div>
+        )}
+
+        {sent === "0" && (
+          <div className="mt-5 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+            Something went wrong. Please try again.
+          </div>
+        )}
 
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           <div className="rounded-3xl border border-black/5 bg-white/70 p-6 shadow-glow md:col-span-2 genesis-lift">
@@ -107,12 +125,15 @@ export default function ContactPage() {
               Tell us what you need and we’ll respond quickly.
             </p>
 
-            <form className="mt-6 grid gap-4">
+            <form action="/api/contact" method="POST" className="mt-6 grid gap-4">
+              <input type="hidden" name="formType" value="request" />
+
               <Field label="Organisation / Care home name" htmlFor="organisation">
                 <input
                   id="organisation"
                   name="organisation"
                   type="text"
+                  required
                   className="w-full rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-black/5"
                 />
               </Field>
@@ -123,6 +144,7 @@ export default function ContactPage() {
                     id="contactName"
                     name="contactName"
                     type="text"
+                    required
                     className="w-full rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-black/5"
                   />
                 </Field>
@@ -132,6 +154,7 @@ export default function ContactPage() {
                     id="requestPhone"
                     name="phone"
                     type="tel"
+                    required
                     className="w-full rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-black/5"
                   />
                 </Field>
@@ -142,6 +165,7 @@ export default function ContactPage() {
                   id="requestEmail"
                   name="email"
                   type="email"
+                  required
                   className="w-full rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-black/5"
                 />
               </Field>
@@ -150,6 +174,7 @@ export default function ContactPage() {
                 <textarea
                   id="shiftDetails"
                   name="shiftDetails"
+                  required
                   className="w-full rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-black/5 min-h-[140px]"
                 />
               </Field>
@@ -175,13 +200,16 @@ export default function ContactPage() {
               Interested in joining Genesis? Submit your details and we’ll be in touch.
             </p>
 
-            <form className="mt-6 grid gap-4">
+            <form action="/api/contact" method="POST" className="mt-6 grid gap-4">
+              <input type="hidden" name="formType" value="apply" />
+
               <div className="grid gap-4 sm:grid-cols-2">
                 <Field label="Full name" htmlFor="applyName">
                   <input
                     id="applyName"
                     name="fullName"
                     type="text"
+                    required
                     className="w-full rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-black/5"
                   />
                 </Field>
@@ -191,6 +219,7 @@ export default function ContactPage() {
                     id="applyPhone"
                     name="phone"
                     type="tel"
+                    required
                     className="w-full rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-black/5"
                   />
                 </Field>
@@ -201,6 +230,7 @@ export default function ContactPage() {
                   id="applyEmail"
                   name="email"
                   type="email"
+                  required
                   className="w-full rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-black/5"
                 />
               </Field>
@@ -210,6 +240,7 @@ export default function ContactPage() {
                   id="applyRole"
                   name="role"
                   type="text"
+                  required
                   className="w-full rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-black/5"
                 />
               </Field>
@@ -218,6 +249,7 @@ export default function ContactPage() {
                 <textarea
                   id="applyMessage"
                   name="message"
+                  required
                   className="w-full rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-black/5 min-h-[140px]"
                 />
               </Field>
