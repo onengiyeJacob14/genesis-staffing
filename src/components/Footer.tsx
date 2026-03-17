@@ -74,7 +74,6 @@ export default function Footer() {
             <p className="mt-3 text-white/70">
               Email:{" "}
               <span className="text-white font-medium">genesisstaffingltd@gmail.com</span>{" "}
-              (placeholder)
               <br />
               Phone: <span className="text-white font-medium">0121 725 0155</span>
             </p>
