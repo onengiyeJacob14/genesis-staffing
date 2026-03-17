@@ -52,7 +52,7 @@ export default function ContactPage({
                 href="mailto:info@genesistaffing.co.uk"
                 className="font-medium text-genesis-navy hover:underline"
               >
-                info@genesistaffing.co.uk
+                genesisstaffingltd@gmail.com
               </a>
               <br />
               Phone:{" "}
