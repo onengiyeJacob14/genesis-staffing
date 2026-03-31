@@ -17,7 +17,7 @@ const directors = [
   {
     name: "Jessica",
     role: "Co-Founder / Director",
-    image: "/team/Jessica.jpg",
+    image: "/team/jessica.jpg",
     bio: "Experienced operations lead with a structured approach to governance, communication and client partnerships.",
   },
 ];
