@@ -7,6 +7,41 @@ export default function ContactPage({
 
   return (
     <div className="genesis-hero-bg">
+      {(sent === "1" || sent === "0") && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-genesis-navy/35 px-4 backdrop-blur-sm">
+          <div className="relative w-full max-w-md rounded-3xl border border-black/5 bg-white p-7 shadow-2xl">
+            <div
+              className={`mx-auto flex h-14 w-14 items-center justify-center rounded-full text-2xl ${
+                sent === "1"
+                  ? "bg-emerald-100 text-emerald-600"
+                  : "bg-red-100 text-red-600"
+              }`}
+            >
+              {sent === "1" ? "✓" : "!"}
+            </div>
+
+            <h2 className="mt-5 text-center text-2xl font-heading font-semibold text-genesis-navy">
+              {sent === "1" ? "Message Sent" : "Something Went Wrong"}
+            </h2>
+
+            <p className="mt-3 text-center text-sm leading-relaxed text-genesis-slate">
+              {sent === "1"
+                ? "Thank you for contacting Genesis Staffing Solutions. Your form has been submitted successfully and our team will be in touch shortly."
+                : "We could not send your form at the moment. Please try again or contact us directly by phone."}
+            </p>
+
+            <div className="mt-6 flex justify-center">
+              <a
+                href="/contact"
+                className="rounded-2xl px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:opacity-95 genesis-btn-primary genesis-shine"
+              >
+                Close
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
       <section className="mx-auto max-w-6xl px-4 pt-10 pb-12">
         <p className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white/70 px-4 py-2 text-xs font-semibold text-genesis-navy shadow-glow">
           Contact • Requests • Applications
@@ -21,18 +56,6 @@ export default function ContactPage({
         <p className="mt-4 max-w-3xl text-genesis-slate">
           For urgent bookings, please call directly. For general enquiries, use the forms below.
         </p>
-
-        {sent === "1" && (
-          <div className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
-            Your message has been sent successfully.
-          </div>
-        )}
-
-        {sent === "0" && (
-          <div className="mt-5 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-            Something went wrong. Please try again.
-          </div>
-        )}
 
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           <div className="rounded-3xl border border-black/5 bg-white/70 p-6 shadow-glow md:col-span-2 genesis-lift">
