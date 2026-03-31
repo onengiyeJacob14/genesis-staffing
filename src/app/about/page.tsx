@@ -11,13 +11,13 @@ const directors = [
   {
     name: "Olivia Lonngren",
     role: "Co-Founder / Director",
-    image: "/team/olivia.jpg",
+    image: "/team/olivia-directors.jpg",
     bio: "Experienced healthcare leader with a focus on service quality, compliance and reliable staffing delivery.",
   },
   {
     name: "Jessica",
     role: "Co-Founder / Director",
-    image: "/team/jessica.jpg",
+    image: "/team/jessica-directors.jpg",
     bio: "Experienced operations lead with a structured approach to governance, communication and client partnerships.",
   },
 ];
