@@ -17,7 +17,10 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Genesis Staffing Solutions",
   description:
-    "Reliable temporary healthcare staffing across the West Midlands.",
+    "Reliable temporary healthcare staffing across the West Midlands.", 
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
