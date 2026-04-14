@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description:
     "Reliable temporary healthcare staffing across the West Midlands.", 
   icons: {
-    icon: "/brand/genesis-logo.png",
+    icon: "/brand/favicon2.png",
   },
 };
 
