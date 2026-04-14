@@ -44,6 +44,10 @@ export default function Footer() {
               <Link className="block text-white/70 hover:text-white transition" href="/careers">
                 Careers
               </Link>
+              <Link className="block text-white/70 hover:text-white transition" href="/documents/privacy-policy.pdf">
+              Privacy Policy
+              </Link>
+  
             </div>
 
             <div className="space-y-2">
